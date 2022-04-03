@@ -1,0 +1,57 @@
+# This "input" configures a global authorization rule to enable public access to
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
+
+
+type Emptab
+  @model
+  @auth(
+    rules: [
+      # allow admins to create, update and delete books
+      { allow: groups, groups: ["Admin"] }
+      # allow all authenticated users to view books
+      { allow: private, operations: [create,read,update] }
+      # allow all guest users (not authenticated) to view books
+      { allow: public, operations: [create,read,update] }
+    ]
+  ) {
+  id: String!
+  name: String!
+  email: AWSEmail
+  age:Int
+  address:String
+  state:String
+  city:String
+  phone:String
+  dob:String
+  country:String
+  leave: [LeaveRequest] @hasMany
+}
+
+type LeaveRequest
+  @model
+  @auth(
+    rules: [
+      # allow admins to create, update and delete books
+      { allow: groups, groups: ["Admin"] }
+      # allow all authenticated users to view books
+      { allow: private, operations: [create,read,update] }
+      # allow all guest users (not authenticated) to view books
+      { allow: public, operations: [create,read,update] }
+    ]
+  ) 
+{ 
+  status:String
+  leavename:String
+  leavedate:String
+  leavenote:String
+  leavedays:String
+}
+
+
+
+
+
+
+
+

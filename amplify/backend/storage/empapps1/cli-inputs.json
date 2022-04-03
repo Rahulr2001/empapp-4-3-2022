@@ -1,0 +1,17 @@
+{
+  "resourceName": "empapps1",
+  "policyUUID": "b1911c56",
+  "bucketName": "empappfbadb69de490140f5b4d5c735389a66f5",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "CREATE_AND_UPDATE",
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "S3Triggerd33855da",
+  "groupAccess": {}
+}

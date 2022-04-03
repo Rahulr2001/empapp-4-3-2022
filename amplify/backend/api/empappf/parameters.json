@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "empappf",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authempappfdbc56693",
+      "Outputs.UserPoolId"
+    ]
+  }
+}
